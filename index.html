@@ -3,45 +3,1251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>sobre mi</title>
+    <title>Inteligencia Artificial Generativa | Innovación Tecnológica</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --secondary-dark: #6d28d9;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-scrolled {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(124, 58, 237, 0.9)), url('/placeholder.svg?height=1080&width=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/placeholder.svg?height=500&width=500') no-repeat;
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline-light {
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .section-title.text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card {
+            padding: 40px 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transition: all 0.5s ease;
+            z-index: -1;
+            opacity: 0;
+        }
+        
+        .feature-card:hover::before {
+            height: 100%;
+            opacity: 1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover .feature-icon,
+        .feature-card:hover .feature-title,
+        .feature-card:hover .feature-text {
+            color: white;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-text {
+            transition: all 0.3s ease;
+        }
+        
+        .bg-light-section {
+            background-color: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bg-light-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            opacity: 0.1;
+        }
+        
+        .bg-light-section::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            opacity: 0.1;
+        }
+        
+        .content-image {
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .content-image img {
+            transition: all 0.5s ease;
+        }
+        
+        .content-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 15px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h5 {
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .testimonial-info p {
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        .faq-section {
+            position: relative;
+        }
+        
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 10px !important;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .accordion-button {
+            padding: 20px 25px;
+            font-weight: 600;
+            background-color: white;
+            box-shadow: none !important;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            color: var(--primary);
+            background-color: white;
+        }
+        
+        .accordion-body {
+            padding: 0 25px 20px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+        }
+        
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 20px;
+            position: relative;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            margin-right: 15px;
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        .gallery-img {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-img img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                margin-top: 15px;
+            }
+            
+            .nav-link {
+                margin: 10px 0;
+            }
+            
+            .hero-section {
+                padding: 120px 0 80px;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animaciones y efectos adicionales */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .highlight-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>mi pagina personal</h1>
-        <h2>conoceme un poco mas</h2>
-    </header> 
-    <hr>  
-    <img src="" alt="foto" style="width: 800px;
-    margin:0 auto;display: block;">
+    <!-- Botón volver arriba -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="bi bi-arrow-up"></i>
+    </a>
 
-    <hr>
-
-        <h3>mi perfil</h3>
-        <p>soy una estudiante de ingeneria de sistemas,me gusta que estoy aprendiendo a resolver problemas y me interesa aprender sobre el desarrollo de paginas web. </p>
-        <h3>hobbies</h3>
-        <ul>
-            <li>ver documentales</li>
-            <li>escuchar musica</li>
-            <li>ver tik tok</li>
-            <li>pintar</li>
-            <li>programar</li>
-            <li>maquillarme</li>     
-          </ul>
-        <h3>formacion personal</h3>
-        <ol>
-            <li>tengo un certificado sobre microorganismos y abono organico</li>
-        </ol>
-        <footer>
-            <h4>datos de contacto:</h4>
-            <h4>correo:itaborda@unicesar.edu.co</h4>
-            <h4>IG:@isabelllhaa</h4>
-            <h4>telefono:3006103888</h4>
-            <a href="https://www.blogger.com/about/?hl=es"
-            target="_blank">mi blog personal
-    
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-cpu-fill me-2"></i>AI Genesis
             </a>
-        </footer>
-    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#definicion">¿Qué es?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#usos">Aplicaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#futuro">Futuro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#casos">Casos de Éxito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-3" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="hero-section" id="inicio">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="display-3 fw-bold mb-4 hero-title">El Futuro de la Creación con IA Generativa</h1>
+                    <p class="lead mb-4">Descubre cómo la Inteligencia Artificial Generativa está transformando industrias y redefiniendo los límites de la creatividad humana.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#definicion" class="btn btn-primary">Explorar Ahora</a>
+                        <a href="#galeria" class="btn btn-outline-light">Ver Galería</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <img src="/placeholder.svg?height=500&width=600&text=IA+Generativa" alt="IA Generativa" class="img-fluid rounded-3 shadow floating">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Estadísticas -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-duration="800">
+                    <div class="text-center">
+                        <h3 class="stat-number">97%</h3>
+                        <p class="mb-0 text-muted">Empresas que consideran la IA generativa transformadora</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="text-center">
+                        <h3 class="stat-number">75%</h3>
+                        <p class="mb-0 text-muted">Profesionales creativos que ya utilizan IA</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="text-center">
+                        <h3 class="stat-number">40%</h3>
+                        <p class="mb-0 text-muted">Reducción en tiempo de producción de contenido</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="text-center">
+                        <h3 class="stat-number">$1.3T</h3>
+                        <p class="mb-0 text-muted">Valor económico proyectado para 2030</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Definición -->
+    <section id="definicion" class="section-padding bg-light-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="section-title">
+                        <h2>¿Qué es la IA Generativa?</h2>
+                    </div>
+                    <p class="lead mb-4">La Inteligencia Artificial Generativa representa una revolución en el campo de la IA, capaz de crear contenido original y novedoso a partir de datos existentes.</p>
+                    <p class="mb-4">A diferencia de la IA tradicional que se enfoca en analizar y clasificar información, la IA generativa puede producir textos, imágenes, música, vídeos y otros tipos de contenido que nunca han existido antes, expandiendo los límites de lo que consideramos posible.</p>
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h5>Aprendizaje Profundo</h5>
+                            <p class="text-muted">Utiliza redes neuronales complejas para aprender patrones y características de grandes conjuntos de datos.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h5>Modelos Avanzados</h5>
+                            <p class="text-muted">Emplea arquitecturas como GANs, Transformers y Modelos de Difusión para generar contenido de alta calidad.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                        <div>
+                            <h5>Creatividad Computacional</h5>
+                            <p class="text-muted">Capaz de producir obras creativas que antes eran dominio exclusivo de los humanos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="content-image">
+                        <img src="/placeholder.svg?height=600&width=800&text=Concepto+de+IA+Generativa" alt="Concepto de IA Generativa" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Usos Cotidianos -->
+    <section id="usos" class="section-padding">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Aplicaciones Prácticas</h2>
+                <p class="lead">Descubre cómo la IA generativa está transformando industrias y creando nuevas posibilidades</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800">
+                    <div class="feature-card">
+                        <i class="bi bi-image feature-icon"></i>
+                        <h4 class="feature-title">Creación de Imágenes</h4>
+                        <p class="feature-text">Generación de imágenes realistas y artísticas a partir de descripciones textuales, revolucionando el diseño gráfico y la ilustración.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="feature-card">
+                        <i class="bi bi-chat-dots feature-icon"></i>
+                        <h4 class="feature-title">Asistentes Virtuales</h4>
+                        <p class="feature-text">Chatbots avanzados capaces de mantener conversaciones naturales, responder preguntas complejas y generar contenido personalizado.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="feature-card">
+                        <i class="bi bi-music-note-beamed feature-icon"></i>
+                        <h4 class="feature-title">Composición Musical</h4>
+                        <p class="feature-text">Creación de piezas musicales originales en diversos estilos, arreglos personalizados e incluso imitación del estilo de compositores famosos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="feature-card">
+                        <i class="bi bi-translate feature-icon"></i>
+                        <h4 class="feature-title">Traducción Avanzada</h4>
+                        <p class="feature-text">Sistemas de traducción que capturan no solo el significado literal, sino también el contexto, la intención y los matices culturales.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <div class="feature-card">
+                        <i class="bi bi-code-slash feature-icon"></i>
+                        <h4 class="feature-title">Programación Asistida</h4>
+                        <p class="feature-text">Herramientas que ayudan a los desarrolladores sugiriendo código, completando funciones y optimizando algoritmos automáticamente.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                    <div class="feature-card">
+                        <i class="bi bi-film feature-icon"></i>
+                        <h4 class="feature-title">Edición de Video</h4>
+                        <p class="feature-text">Aplicaciones que permiten editar videos, cambiar fondos, añadir efectos especiales o crear escenas completas mediante instrucciones textuales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Galería de IA -->
+    <section id="galeria" class="section-padding bg-light-section">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Galería de IA Generativa</h2>
+                <p class="lead">Ejemplos impresionantes de imágenes creadas por inteligencia artificial</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800">
+                    <div class="gallery-img">
+                        <img src="/placeholder.svg?height=400&width=400&text=Arte+Digital+IA" alt="Arte digital generado por IA" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="gallery-img">
+                        <img src="/placeholder.svg?height=400&width=400&text=Paisaje+IA" alt="Paisaje generado por IA" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="gallery-img">
+                        <img src="/placeholder.svg?height=400&width=400&text=Retrato+IA" alt="Retrato generado por IA" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="gallery-img">
+                        <img src="/placeholder.svg?height=400&width=400&text=Abstracto+IA" alt="Arte abstracto generado por IA" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <p class="lead mb-4">Estas imágenes demuestran el potencial creativo de la IA generativa para producir arte visual único y sorprendente.</p>
+                <a href="#casos" class="btn btn-primary">Ver Casos de Éxito</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Ejemplos Visuales -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2>La IA Generativa en Acción</h2>
+                <p class="lead">Ejemplos reales de contenido creado por inteligencia artificial</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800">
+                    <div class="card">
+                        <img src="/placeholder.svg?height=300&width=500&text=Arte+Digital+IA" class="card-img-top" alt="Arte generado por IA">
+                        <div class="card-body">
+                            <h4 class="card-title">Arte Digital</h4>
+                            <p class="card-text">Obras de arte únicas generadas por IA que combinan estilos artísticos y técnicas innovadoras.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="card">
+                        <img src="/placeholder.svg?height=300&width=500&text=Código+IA" class="card-img-top" alt="Código generado por IA">
+                        <div class="card-body">
+                            <h4 class="card-title">Desarrollo de Software</h4>
+                            <p class="card-text">Código funcional generado automáticamente para diferentes lenguajes de programación y frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="card">
+                        <img src="/placeholder.svg?height=300&width=500&text=Diseño+Producto+IA" class="card-img-top" alt="Diseño de producto generado por IA">
+                        <div class="card-body">
+                            <h4 class="card-title">Diseño de Producto</h4>
+                            <p class="card-text">Prototipos y conceptos de productos innovadores creados mediante algoritmos generativos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del Futuro de la IA -->
+    <section id="futuro" class="section-padding bg-light-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="content-image">
+                        <img src="/placeholder.svg?height=600&width=800&text=Futuro+de+la+IA" alt="Futuro de la IA" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="section-title">
+                        <h2>El Futuro de la IA Generativa</h2>
+                    </div>
+                    <p class="lead mb-4">La IA generativa está apenas comenzando a mostrar su potencial, y su evolución promete transformar radicalmente múltiples industrias y aspectos de nuestra vida cotidiana.</p>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-primary rounded-circle p-2 me-3 mt-1">
+                            <i class="bi bi-lightbulb text-white"></i>
+                        </div>
+                        <div>
+                            <h5>Personalización Extrema</h5>
+                            <p class="text-muted">Contenido, productos y servicios totalmente adaptados a cada individuo basados en sus preferencias y necesidades específicas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-primary rounded-circle p-2 me-3 mt-1">
+                            <i class="bi bi-brush text-white"></i>
+                        </div>
+                        <div>
+                            <h5>Creatividad Aumentada</h5>
+                            <p class="text-muted">La IA potenciará la capacidad creativa humana, sirviendo como herramienta de inspiración y colaboración en procesos creativos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-primary rounded-circle p-2 me-3 mt-1">
+                            <i class="bi bi-people text-white"></i>
+                        </div>
+                        <div>
+                            <h5>Democratización de la Creación</h5>
+                            <p class="text-muted">Personas sin habilidades técnicas específicas podrán crear contenido profesional, reduciendo las barreras de entrada en campos creativos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary rounded-circle p-2 me-3 mt-1">
+                            <i class="bi bi-shield-check text-white"></i>
+                        </div>
+                        <div>
+                            <h5>Nuevos Paradigmas Éticos</h5>
+                            <p class="text-muted">Surgirán nuevos retos relacionados con la propiedad intelectual, la desinformación y la autenticidad del contenido que requerirán soluciones innovadoras.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Casos de Éxito -->
+    <section id="casos" class="section-padding">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Casos de Éxito</h2>
+                <p class="lead">Organizaciones que están liderando la innovación con IA generativa</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800">
+                    <div class="card">
+                        <img src="/placeholder.svg?height=250&width=500&text=Caso+Éxito+1" class="card-img-top" alt="Caso de éxito 1">
+                        <div class="card-body">
+                            <h4 class="card-title">Industria Creativa</h4>
+                            <p class="card-text mb-3">Una reconocida agencia de publicidad redujo en un 60% el tiempo de producción de contenido visual utilizando herramientas de IA generativa para la creación de conceptos iniciales.</p>
+                            <a href="#" class="btn btn-outline-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="card">
+                        <img src="/placeholder.svg?height=250&width=500&text=Caso+Éxito+2" class="card-img-top" alt="Caso de éxito 2">
+                        <div class="card-body">
+                            <h4 class="card-title">Sector Tecnológico</h4>
+                            <p class="card-text mb-3">Una startup de desarrollo de software implementó asistentes de programación basados en IA, aumentando la productividad de sus desarrolladores en un 35%.</p>
+                            <a href="#" class="btn btn-outline-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="card">
+                        <img src="/placeholder.svg?height=250&width=500&text=Caso+Éxito+3" class="card-img-top" alt="Caso de éxito 3">
+                        <div class="card-body">
+                            <h4 class="card-title">Educación</h4>
+                            <p class="card-text mb-3">Una universidad implementó tutores virtuales basados en IA generativa, logrando mejorar las tasas de retención estudiantil en un 28% en cursos complejos.</p>
+                            <a href="#" class="btn btn-outline-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section class="section-padding bg-light-section">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Lo Que Dicen los Expertos</h2>
+                <p class="lead">Opiniones de profesionales que trabajan con IA generativa</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="800">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"La IA generativa ha transformado completamente nuestro flujo de trabajo creativo. Lo que antes tomaba días ahora se puede lograr en horas, permitiéndonos enfocarnos en refinar conceptos en lugar de crearlos desde cero."</p>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=60&width=60&text=AM" alt="Testimonio 1" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h5>Ana Martínez</h5>
+                                <p>Directora Creativa, Agencia Innovación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Como desarrollador, las herramientas de IA generativa me han permitido escribir código más rápido y con menos errores. Es como tener un par de programadores extra en el equipo que nunca se cansan."</p>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=60&width=60&text=CR" alt="Testimonio 2" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h5>Carlos Rodríguez</h5>
+                                <p>Lead Developer, TechSolutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes -->
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Preguntas Frecuentes</h2>
+                <p class="lead">Respuestas a las dudas más comunes sobre IA generativa</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="800">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    ¿Qué diferencia a la IA generativa de otros tipos de IA?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    La IA generativa se diferencia por su capacidad para crear contenido nuevo y original, mientras que otros tipos de IA se centran en analizar, clasificar o predecir basándose en datos existentes. La IA generativa utiliza modelos como GANs, Transformers y Modelos de Difusión para aprender patrones y luego generar contenido nuevo que sigue esos patrones.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    ¿La IA generativa reemplazará a los trabajadores creativos?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Es poco probable que la IA generativa reemplace completamente a los trabajadores creativos. En cambio, está evolucionando como una herramienta poderosa que amplifica la creatividad humana. Los profesionales que aprendan a colaborar eficazmente con estas herramientas probablemente verán aumentada su productividad y capacidades creativas, permitiéndoles enfocarse en aspectos más estratégicos y conceptuales de su trabajo.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    ¿Qué desafíos éticos presenta la IA generativa?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    La IA generativa plantea varios desafíos éticos, incluyendo cuestiones de propiedad intelectual (¿quién es dueño del contenido generado por IA?), el potencial para crear desinformación o deepfakes, sesgos en los datos de entrenamiento que pueden perpetuarse en el contenido generado, y preocupaciones sobre la autenticidad y originalidad. Estos desafíos requieren un enfoque multidisciplinario que involucre a tecnólogos, legisladores, ética y sociedad civil.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    ¿Qué habilidades serán importantes para trabajar con IA generativa?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Las habilidades clave incluyen la capacidad de escribir prompts efectivos (prompt engineering), pensamiento crítico para evaluar y refinar el contenido generado, conocimientos básicos sobre cómo funcionan estos modelos, creatividad para dirigir la IA hacia resultados innovadores, y habilidades éticas para navegar las implicaciones de estas tecnologías. La combinación de conocimientos técnicos y creativos será particularmente valiosa.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 class="display-5 fw-bold mb-4">¿Listo para explorar el potencial de la IA generativa?</h2>
+                    <p class="lead mb-4">Únete a nuestra comunidad y mantente al día con las últimas innovaciones en inteligencia artificial generativa.</p>
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control form-control-lg" placeholder="Tu correo electrónico">
+                        </div>
+                        <div class="col-md-auto">
+                            <button type="submit" class="btn btn-light btn-lg">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="footer-title">
+                        <i class="bi bi-cpu-fill me-2"></i>AI Genesis
+                    </h3>
+                    <p class="mb-4">Explorando el fascinante mundo de la Inteligencia Artificial Generativa y su impacto transformador en nuestra sociedad y economía.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h4 class="footer-title">Enlaces</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#definicion">¿Qué es?</a></li>
+                        <li><a href="#usos">Aplicaciones</a></li>
+                        <li><a href="#futuro">Futuro</a></li>
+                        <li><a href="#casos">Casos de Éxito</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h4 class="footer-title">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Guías</a></li>
+                        <li><a href="#">Investigación</a></li>
+                        <li><a href="#">Herramientas</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <p>Calle Innovación 123</p>
+                                <p>28001 Madrid, España</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <p>info@aigenesis.com</p>
+                                <p>soporte@aigenesis.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <div>
+                                <p>+34 91 123 45 67</p>
+                                <p>Lun - Vie: 9:00 - 18:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2023 AI Genesis. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Scripts personalizados -->
+    <script>
+        // Inicializar AOS
+        AOS.init();
+        
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+        
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
+<Actions>
+  <Action name="Implementar modo oscuro" description="Añadir un toggle para cambiar entre modo claro y oscuro" />
+  <Action name="Crear una galería interactiva" description="Implementar una galería con zoom y efectos para las imágenes de IA" />
+  <Action name="Añadir un generador de prompts" description="Crear una herramienta para generar prompts de IA creativos" />
+  <Action name="Implementar un chatbot de IA" description="Añadir un asistente virtual para responder preguntas sobre IA generativa" />
+  <Action name="Optimizar para SEO" description="Mejorar metadatos y estructura para mejor posicionamiento" />
+</Actions>
